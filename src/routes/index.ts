@@ -4,6 +4,12 @@ import * as z from 'zod';
 import prismaClient from '../prisma';
 
 const routes = async (server: FastifyInstance) => {
+    server.get('/users/count', async () => {
+        const count = prismaClient.users.count();
+
+        return count;
+    });
+
     server.get('/user/:id', async (request) => {
         const createUserParams = z.object({
             id: z.string().uuid(),
@@ -30,6 +36,13 @@ const routes = async (server: FastifyInstance) => {
             skip: Number(skip),
             orderBy: {
                 createdAt: 'asc',
+            },
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                email: true,
+                date: true,
             },
         });
 
