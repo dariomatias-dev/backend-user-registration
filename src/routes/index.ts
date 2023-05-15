@@ -16,7 +16,7 @@ const routes = async (server: FastifyInstance) => {
         });
 
         const id = createUserParams.parse(request.params);
-
+        
         const user = await prismaClient.users.findUnique({
             where: id,
         });
