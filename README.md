@@ -74,7 +74,7 @@ Delete o usuário que corresponde ao id passado.
 
 ## Autor
 
-<img style="border-radius: 50%" src="./public/images/my-photo.png" width="100px" alt="My photo"/>
+<img style="border-radius: 50%" src="./assets/images/my-photo.png" width="100px" alt="My photo"/>
 
 <sub>
   <b>Dário Matias</b>
