@@ -16,7 +16,7 @@ const routes = async (server: FastifyInstance) => {
         });
 
         const id = createUserParams.parse(request.params);
-        
+
         const user = await prismaClient.users.findUnique({
             where: id,
         });
@@ -32,7 +32,7 @@ const routes = async (server: FastifyInstance) => {
         const { skip } = createUsersParams.parse(request.query);
 
         const users = await prismaClient.users.findMany({
-            take: 5,
+            take: 10,
             skip: Number(skip),
             orderBy: {
                 createdAt: 'asc',
@@ -48,7 +48,7 @@ const routes = async (server: FastifyInstance) => {
 
         return {
             users,
-            skip: Number(skip) + 5,
+            skip: Number(skip) + 10,
         };
     });
 
